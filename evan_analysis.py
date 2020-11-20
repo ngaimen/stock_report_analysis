@@ -30,11 +30,11 @@ def filter_stock_by_cwbb(year):
         gplb = gplb[gplb['其他应付款(万元)' + str(i)] / gplb['平均利润(万元)'] < 0.35]
         gplb = gplb[abs(gplb['资产减值损失(万元)' + str(i)]) / gplb['平均利润(万元)'] < 0.3]
 
-        gplb = gplb[gplb['货币资金(万元)' + str(i)] / gplb['有息负债(万元)' + str(i)] > 1]
+        gplb = gplb[gplb['货币资金(万元)' + str(i)] / gplb['有息负债(万元)' + str(i)] > 0.85]
 
         gplb = gplb[abs(gplb['营业外收入(万元)' + str(i)]) / abs(gplb['营业总收入(万元)' + str(i)]) < 0.2]
         gplb = gplb[abs(gplb['营业外支出(万元)' + str(i)]) / abs(gplb['营业总成本(万元)' + str(i)]) < 0.2]
-        gplb = gplb[gplb['毛利率(%)' + str(i)] > 20]
+        gplb = gplb[gplb['毛利率(%)' + str(i)] > 10]
 
         gplb = gplb[gplb['费用总和(万元)' + str(i)] / (gplb['营业总收入(万元)' + str(i)] - gplb['营业总成本(万元)' + str(i)]) < 0.95]
 
@@ -47,6 +47,7 @@ def filter_stock_by_cwbb(year):
         gplb = gplb[gplb['经营活动产生的现金流量净额(万元)' + str(i)] / abs(gplb['投资活动产生的现金流量净额(万元)' + str(i)]) > 0.5]
         gplb = gplb[gplb['现金及现金等价物的净增加额(万元)' + str(i)] + gplb['净利润(万元)' + str(i)] > 0]
         gplb = gplb[gplb['净利润(万元)' + str(i)] > 0]
+        gplb = gplb[gplb['净利润增长率(%)' + str(i)] > 10]
 
     gplb = gplb[gplb['利润同比(%)'] > 0]
 
