@@ -1,7 +1,7 @@
 import pandas
 import threadpool
 
-from download_data.DownloadReport import *
+from data_processing.DownloadReport import *
 
 stock_list_path = "data/stock_list/list.csv"
 
